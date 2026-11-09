@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre destinos increíbles y cotiza tu próximo viaje con Rumbo Aventura.">
+  <meta name="theme-color" content="#073b4c">
+  <title>Rumbo Aventura | Viaja, descubre y vive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar container">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">✦</span>
+      <span>RUMBO <b>AVENTURA</b>
+        <small>VIAJES QUE INSPIRAN</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#destinos">Destinos</a>
+      <a href="#cotizador">Cotizador</a>
+      <a href="#nosotros">Nosotros</a>
+      <a class="nav-cta" href="#contacto">Contáctanos</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- INICIO -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <span class="eyebrow light">DESCUBRE EL MUNDO A TU MANERA</span>
+
+      <h1>
+        Tu próxima aventura<br>
+        <em>comienza aquí.</em>
+      </h1>
+
+      <p>
+        Explora lugares extraordinarios, crea recuerdos inolvidables
+        y viaja con la tranquilidad de tenerlo todo planeado.
+      </p>
+
+      <a class="btn btn-orange" href="#destinos">
+        Explorar destinos →
+      </a>
+    </div>
+
+    <div class="hero-note">
+      ✈ Experiencias diseñadas para ti
+    </div>
+  </section>
+
+  <!-- BUSCADOR -->
+  <section class="search-section container">
+    <div class="search-heading">
+      <span class="eyebrow">ENCUENTRA TU PRÓXIMO VIAJE</span>
+      <h2>¿A dónde quieres ir?</h2>
+    </div>
+
+    <form id="searchForm" class="search-bar">
+      <label class="search-field">
+        <span>Destino</span>
+        <input id="searchInput" type="search"
+          placeholder="Ej. Cartagena, París...">
+      </label>
+
+      <label class="search-field">
+        <span>Continente</span>
+        <select id="continentSearch">
+          <option value="todos">Todos</option>
+          <option value="América">América</option>
+          <option value="Europa">Europa</option>
+          <option value="Asia">Asia</option>
+          <option value="África">África</option>
+        </select>
+      </label>
+
+      <button class="btn btn-primary" type="submit">
+        Buscar viajes
+      </button>
+    </form>
+  </section>
+
+  <!-- DESTINOS -->
+  <section class="section container" id="destinos">
+
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">LUGARES QUE ENAMORAN</span>
+        <h2>Destinos destacados</h2>
+        <p>Elige tu próximo escenario para vivir algo inolvidable.</p>
+      </div>
+
+      <span class="destination-count" id="destinationCount">
+        9 experiencias
+      </span>
+    </div>
+
+    <div class="filters">
+      <label>
+        Continente
+        <select id="continentFilter">
+          <option value="todos">Todos los continentes</option>
+          <option>América</option>
+          <option>Europa</option>
+          <option>Asia</option>
+          <option>África</option>
+        </select>
+      </label>
+
+      <label>
+        Precio máximo por persona
+        <select id="priceFilter">
+          <option value="999999999">Cualquier precio</option>
+          <option value="1000000">Hasta $1.000.000</option>
+          <option value="2000000">Hasta $2.000.000</option>
+          <option value="3500000">Hasta $3.500.000</option>
+          <option value="5000000">Hasta $5.000.000</option>
+        </select>
+      </label>
+
+      <button class="text-button" id="clearFilters" type="button">
+        Limpiar filtros ↺
+      </button>
+    </div>
+
+    <div class="destination-grid" id="destinationGrid"></div>
+
+    <p class="empty-message" id="emptyMessage" hidden>
+      No encontramos destinos con esos filtros.
+      Prueba con otra búsqueda.
+    </p>
+  </section>
+
+  <!-- COTIZADOR -->
+  <section class="quote-section" id="cotizador">
+    <div class="container quote-layout">
+
+      <div class="quote-intro">
+        <span class="eyebrow light">PLANEA SIN COMPLICACIONES</span>
+
+        <h2>
+          Calcula tu viaje<br>
+          <em>en pocos pasos.</em>
+        </h2>
+
+        <p>
+          Personaliza tu experiencia y conoce un valor estimado
+          antes de viajar. Puedes cambiar el destino, las personas,
+          las noches y el tipo de hotel.
+        </p>
+
+        <div class="quote-benefit">✓ Cálculo inmediato</div>
+        <div class="quote-benefit">✓ Opciones para cada presupuesto</div>
+        <div class="quote-benefit">✓ Asesoría personalizada</div>
+      </div>
+
+      <form class="quote-card" id="quoteForm">
+        <h3>Tu cotización</h3>
+        <p class="form-subtitle">Completa los datos de tu aventura.</p>
+
+        <label>
+          Destino
+          <select id="quoteDestination" required>
+            <option value="">Selecciona un destino</option>
+          </select>
+        </label>
+
+        <div class="form-row">
+          <label>
+            Número de personas
+            <input id="people" type="number" min="1" max="20"
+              value="2" required>
+          </label>
+
+          <label>
+            Número de noches
+            <input id="nights" type="number" min="1" max="30"
+              value="3" required>
+          </label>
+        </div>
+
+        <label>
+          Tipo de hotel
+          <select id="hotel" required>
+            <option value="economico">Económico</option>
+            <option value="estandar" selected>Estándar</option>
+            <option value="lujo">Lujo</option>
+          </select>
+        </label>
+
+        <button class="btn btn-orange full-btn" type="submit">
+          Calcular mi viaje →
+        </button>
+
+        <div class="quote-result" id="quoteResult" aria-live="polite">
+          <span class="result-placeholder">
+            Tu resumen de cotización aparecerá aquí.
+          </span>
+        </div>
+
+        <p class="disclaimer">
+          *Valores estimados en pesos colombianos (COP).
+          La tarifa final puede variar según fechas y disponibilidad.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section about-section" id="nosotros">
+    <div class="container about-layout">
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=85"
+          alt="Maleta y artículos preparados para viajar"
+          loading="lazy">
+
+        <span class="image-stamp">VIAJA<br>FELIZ</span>
+      </div>
+
+      <div class="about-copy">
+        <span class="eyebrow">SOMOS RUMBO AVENTURA</span>
+
+        <h2>
+          Más que viajes,<br>
+          <em>creamos historias.</em>
+        </h2>
+
+        <p>
+          Somos una agencia apasionada por conectar personas con
+          lugares maravillosos. Te acompañamos desde la elección
+          del destino hasta la planeación de cada detalle para
+          que solo te preocupes por disfrutar.
+        </p>
+
+        <div class="stats">
+          <div>
+            <strong>9+</strong>
+            <span>Destinos increíbles</span>
+          </div>
+
+          <div>
+            <strong>100%</strong>
+            <span>Pasión por viajar</span>
+          </div>
+
+          <div>
+            <strong>1</strong>
+            <span>Próxima aventura: la tuya</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact-section" id="contacto">
+    <div class="container contact-inner">
+
+      <div>
+        <span class="eyebrow light">
+          ¿LISTO PARA HACER LAS MALETAS?
+        </span>
+
+        <h2>
+          Hablemos de tu<br>
+          <em>próxima aventura.</em>
+        </h2>
+
+        <p>
+          Cuéntanos qué tienes en mente y recibe asesoría
+          para encontrar el viaje ideal.
+        </p>
+
+        <div class="contact-details">
+          <p>
+            📍 <strong>Ubicación:</strong>
+            Canalete, Córdoba, Colombia
+          </p>
+
+          <p>
+            📱 <strong>WhatsApp:</strong>
+            <a href="https://wa.me/573126020219"
+               target="_blank" rel="noopener">
+              312 602 0219
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="contact-form">
+
+        <label>
+          Tu nombre
+          <input id="contactName" type="text"
+            placeholder="Escribe tu nombre" required>
+        </label>
+
+        <label>
+          ¿Qué destino te interesa?
+          <input id="contactDestination" type="text"
+            placeholder="Destino de interés" required>
+        </label>
+
+        <label>
+          Mensaje
+          <textarea id="contactMessage" rows="3"
+            placeholder="Cuéntanos cómo imaginas tu viaje..."></textarea>
+        </label>
+
+        <button class="btn btn-orange full-btn" type="submit">
+          Solicitar asesoría por WhatsApp ↗
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="footer">
+  <div class="container footer-inner">
+
+    <a class="brand footer-brand" href="#inicio">
+      <span class="brand-mark">✦</span>
+      <span>RUMBO <b>AVENTURA</b>
+        <small>VIAJES QUE INSPIRAN</small>
+      </span>
+    </a>
+
+    <p>📍 Canalete, Córdoba</p>
+
+    <p>
+      © <span id="year"></span>
+      Rumbo Aventura. Todos los derechos reservados.
+    </p>
+
+    <a href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<!-- VENTANA DE DETALLES -->
+<div class="modal" id="destinationModal" aria-hidden="true">
+
+  <div class="modal-backdrop" data-close-modal></div>
+
+  <article class="modal-panel" role="dialog"
+    aria-modal="true" aria-labelledby="modalTitle">
+
+    <button class="modal-close" type="button"
+      aria-label="Cerrar" data-close-modal>×</button>
+
+    <img id="modalImage" src="" alt="">
+
+    <div class="modal-content">
+      <span class="eyebrow" id="modalContinent"></span>
+
+      <h2 id="modalTitle"></h2>
+
+      <p id="modalDescription"></p>
+
+      <div class="modal-meta">
+        <span id="modalDuration"></span>
+        <strong id="modalPrice"></strong>
+      </div>
+
+      <button class="btn btn-primary"
+        id="modalQuoteButton" type="button">
+        Cotizar este destino →
+      </button>
+    </div>
+  </article>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
